@@ -9,6 +9,22 @@ grammarKit {
   intellijRelease.set(libs.versions.ideaVersion)
 }
 
+compileKotlin {
+  kotlinOptions.jvmTarget = "11"
+}
+compileTestKotlin {
+  kotlinOptions.jvmTarget = "11"
+}
+java {
+  toolchain {
+    languageVersion.set(JavaLanguageVersion.of(11))
+  }
+}
+
+tasks.compileJava {
+  options.release.set(11)
+}
+
 sourceSets {
   main.java.srcDir "gen"
 }
