@@ -1,6 +1,5 @@
 package com.alecstrong.sql.psi.core.psi
 
-import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.project.DumbService
 import com.intellij.openapi.project.Project
 import com.intellij.psi.search.GlobalSearchScope
@@ -18,7 +17,7 @@ interface SchemaContributorIndex {
     }
 
     fun getInstance(project: Project): SchemaContributorIndex {
-      return ServiceManager.getService(project, SchemaContributorIndex::class.java)
+      return project.getService(SchemaContributorIndex::class.java)
         ?: SchemaContributorIndexImpl.instance
     }
   }
